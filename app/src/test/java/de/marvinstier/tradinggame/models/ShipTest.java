@@ -1,6 +1,7 @@
 package de.marvinstier.tradinggame.models;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -10,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import de.marvinstier.tradinggame.exceptions.ShipFullException;
 import de.marvinstier.tradinggame.models.Cargo.CargoType;
 
-public class ShipTest {
+class ShipTest {
 
 	Ship bloodyMary, blackPearl;
 	Cargo bananas, gunpowder, bricks;
@@ -76,6 +77,7 @@ public class ShipTest {
 			bloodyMary.loadCargo(bricks);
 		});
 		assertEquals(4, bloodyMary.getCargoWeight());
+		assertFalse(bloodyMary.getCargoDirectory().contains(bricks));
 	}
 
 }
